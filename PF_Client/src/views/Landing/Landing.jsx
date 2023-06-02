@@ -39,7 +39,7 @@ export const Landing = () => {
       </video>
 
       <Link to='/home'>
-        <button className={styles.buttonToHome} onClick={()=>dispatch(getUsers())}>Go HomePage</button>
+        <button className={styles.buttonToHome} onClick={()=>dispatch(getUsers())}>Ir Inicio</button>
       </Link>
     </div>
   )

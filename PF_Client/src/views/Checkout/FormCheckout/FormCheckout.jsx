@@ -170,9 +170,8 @@
         </div>
           <div className={styles.containerResume}>
             <h2 className={styles.titleCreate}>Resumen de compra</h2>
-            -----------------------------------------------------
             {cart.map(el => <h4 key={el.id}>{el.quantity} {el.name} <b>${el.price}</b></h4>)}
-            -----------------------------------------------------
+            
             <h3>Total: <b>${Math.round(cart.reduce((accumulator, currentValue) => 
               accumulator + (currentValue.price * currentValue.quantity), 0))}</b></h3>
           </div>

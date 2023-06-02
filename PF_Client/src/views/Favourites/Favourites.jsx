@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styles from './Favourites.module.css'
 import { NavBar } from '../../components/NavBar/NavBar'
 import { CardProducts } from '../../components/Card/CardProducts/CardProducts'
-import { getProducts  } from '../../redux/actions';
+import { getProducts } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Favourites = () => {
   const dispatch = useDispatch()
-
   const favourites = useSelector(state => state.favourites)
-  const [stateFavourites, setStateFavourites] = useState(favourites)
 
   useEffect(() => {
     dispatch(getProducts());
@@ -18,10 +16,10 @@ export const Favourites = () => {
   return (
     <div>
       <NavBar />
-      <h1 className={stateFavourites.length > 0 ? '' : styles.hide}>Mis favoritos</h1>
+      <h1 className={favourites.length > 0 ? '' : styles.hide}>Mis favoritos</h1>
       <ul className={styles.cardContainer}>
-        {stateFavourites.length > 0 ? (
-          stateFavourites.map((product) => {
+        {favourites.length > 0 ? (
+          favourites.map((product) => {
               return (
                 <CardProducts
                   id={product.id}

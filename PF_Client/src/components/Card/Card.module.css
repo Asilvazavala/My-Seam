@@ -9,6 +9,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, min(min(100%, 25%)));
   transition: all 0.8s ease;
+  width: 100%;
 }
 
 .hideCards {

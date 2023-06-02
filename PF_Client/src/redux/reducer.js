@@ -19,7 +19,9 @@ import {GET_PRODUCTS,
     FILTER_BY_COUNTRY,
     GET_CART,
     ADD_CART,
+    ADD_FAVOURITE,
     DELETE_CART,
+    DELETE_FAVOURITE,
     UPDATE_CART,
     UPDATE_CART_SET,
    nameAlphabet } from "./actions";
@@ -238,12 +240,38 @@ const rootReducer = (state = initialState, action) => {
                     ...state,
                     cart: [...state.cart, { ...action.payload, quantity: 1 }],
                   };
+
+    case ADD_FAVOURITE: 
+            
+            let itemInFav = state.favourites.find(
+                (product) => product.id === action.payload.id
+            );
+            return itemInFav
+                ? {
+                    ...state,
+                    favourites: state.favourites.map((product) =>
+                        product.id === action.payload.id
+                            ? { ...product }
+                            : product
+                    ),
+                  }
+                : {
+                    ...state,
+                    favourites: [...state.favourites],
+                  };
         
     case DELETE_CART:
         let deleteProduct = state.cart.filter((p) => p.id !== action.payload);
         return {
             ...state,
             cart: deleteProduct
+        }
+
+    case DELETE_FAVOURITE:
+        let deleteFavourite = state.favourites.splice(action.payload, 1);
+        return {
+            ...state,
+            favourites: deleteFavourite
         }
     case UPDATE_CART:
         let cartLength = state.cart.reduce((accumulator, currentValue) => 

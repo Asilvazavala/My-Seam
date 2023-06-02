@@ -109,7 +109,7 @@ export default function DetailText({
     </tr>
     <tr>
       <h4>
-      <td>
+      <td className={txtstyle.txtBold}>
         {edit.s === "description" ? (
           <span>
             <input
@@ -136,8 +136,35 @@ export default function DetailText({
           </h4>
       </tr>
        <tr>
+      <td className={txtstyle.txtBold}>
+       $
+        {edit.s === "price" ? (
+          <span>
+            <input
+              type="text"
+              name="price"
+              onChange={InputHandler}
+            />
+            <button onClick={SendCange}>OK</button>
+          </span>
+        ) : (
+          details.price
+        )}
+      </td>
       <td>
-     Ropa de:
+        {edit.e ? (
+          <button name="price" onClick={EditionPDetail}>
+            {" "}
+            ✍{" "}
+          </button>
+        ) : (
+          ""
+        )}
+      </td>
+    </tr>
+       <tr>
+      <td className={txtstyle.txtLight}>
+     Ropa de—
         {edit.s === "gender" ? (
           <span>
             <input
@@ -164,8 +191,8 @@ export default function DetailText({
     </tr>
 
        <tr>
-      <td>
-      Categoria:
+      <td className={txtstyle.txtLight}>
+      Categoria—
         {edit.s === "category" ? (
           <span>
             <input
@@ -191,36 +218,10 @@ export default function DetailText({
       </td>
     </tr>
 
+   
     <tr>
-      <td>
-       $
-        {edit.s === "price" ? (
-          <span>
-            <input
-              type="text"
-              name="price"
-              onChange={InputHandler}
-            />
-            <button onClick={SendCange}>OK</button>
-          </span>
-        ) : (
-          details.price
-        )}
-      </td>
-      <td>
-        {edit.e ? (
-          <button name="price" onClick={EditionPDetail}>
-            {" "}
-            ✍{" "}
-          </button>
-        ) : (
-          ""
-        )}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Stock:
+      <td className={txtstyle.txtLight}>
+        Stock—
         {edit.s === "stock" ? (
           <span>
             <input
@@ -245,7 +246,7 @@ export default function DetailText({
         )}
       </td>
     </tr>
-    <tr>Vendedor: {details.userid}</tr>
+    <tr className={txtstyle.txtLight}>Vendedor— {details.userid}</tr>
     {/* <tr>Disponible: NYI</tr> */}
     <div>
          {/* Alerta producto agregado al carrito*/}

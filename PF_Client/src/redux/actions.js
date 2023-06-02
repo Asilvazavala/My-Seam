@@ -21,7 +21,9 @@ export const FILTER_BY_TYPE_SERVICE = "FILTER_BY_TYPE_SERVICE";
 export const FILTER_BY_COUNTRY = "FILTER_BY_COUNTRY";
 export const GET_CART = "GET_CART";
 export const ADD_CART = "ADD_CART";
+export const ADD_FAVOURITE = "ADD_FAVOURITE";
 export const DELETE_CART = "DELETE_CART";
+export const DELETE_FAVOURITE = "DELETE_FAVOURITE";
 export const UPDATE_CART= "UPDATE_CART";
 export const UPDATE_CART_SET = "UPDATE_CART_SET";
 
@@ -210,11 +212,21 @@ export const addCart = (payload) => {
   }
 };
 
+export const addFavourite = (payload) => {
+  return function (dispatch)  {    
+    dispatch({ type: ADD_FAVOURITE, payload: payload });
+  }
+};
+
 export const deleteCart = (id) => {
-  return function (dispatch)  {  
-    console.log(id);
-      
+  return function (dispatch)  {       
     dispatch({ type: DELETE_CART, payload: id });
+  }
+};
+
+export const deleteFavourite = (index) => {
+  return function (dispatch)  {       
+    dispatch({ type: DELETE_FAVOURITE, payload: index });
   }
 };
 

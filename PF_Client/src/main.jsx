@@ -10,7 +10,14 @@ const CLIENTID = import.meta.env.VITE_CLIENTID;
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 // Configuración Chakra
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme  } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  config: {
+    initialColorMode: "dark",
+    useSystemColorMode: false,
+  },
+});
 
 // Configuración store
 import { Provider } from "react-redux";
@@ -28,7 +35,7 @@ root.render(
           redirect_uri: window.location.origin,
         }}
       >
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
