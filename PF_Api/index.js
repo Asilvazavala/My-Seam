@@ -21,12 +21,12 @@ const server = require("./src/app.js");
 const { getUsers } = require("./src/controllers/userControllers.js");
 const { conn } = require("./src/db.js");
 require("dotenv").config();
-const { PORT } = process.env;
+const port = process.env.PORT || 3001
 
 // Syncing all the models at once.
 conn.sync({ alter: true }).then(() => {
-  server.listen(PORT, async () => {
+  server.listen(port, async () => {
     await getUsers();
-    console.log(`is listening at port ${PORT}`); // eslint-disable-line no-console
+    console.log(`is listening at port ${port}`); // eslint-disable-line no-console
   });
 });
