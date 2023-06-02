@@ -1,0 +1,125 @@
+/* General */
+.titleImage {
+  display: block;
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  font-weight: bolder;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+.titleSections {
+  margin: 100px 0 10px 30px;
+  font-weight: bolder;
+}
+
+.hideSections {
+  display: none;
+}
+
+/* Containers */
+.mainContainer {
+  margin-bottom: 150px;
+  width: 100%;
+}
+
+.containerSections {
+  width: 100%;
+  display: flex;
+  padding-right: 30px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.containerServicios,
+.containerPantalones,
+.containerFaldas,
+.containerVestidos {
+  position: relative;
+}
+
+.containerVestidos {
+  flex-grow: 2;
+}
+
+.containerPantalones {
+  flex-grow: 8;
+}
+
+.containerImg3Y4 {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Imagenes */
+
+.vestidosImg {
+  height: 400px;
+  padding: 10px 7px 20px 30px;
+  cursor: pointer;
+}
+
+.pantalonesImg {
+  height: 400px;
+  padding: 10px 7px 20px 7px;
+  cursor: pointer;
+}
+
+.faldasImg {
+  height: 200px;
+  width: 100%;
+  padding: 10px 10px 7px 7px;
+  cursor: pointer;
+}
+
+.serviciosImg {
+  height: 200px;
+  width: 100%;
+  padding: 7px 10px 20px 7px;
+  cursor: pointer;
+}
+
+.containerVestidos:hover img, .containerPantalones:hover img, .containerFaldas:hover img, .containerServicios:hover img {
+  opacity: 40%;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 900px) {
+  .containerSections {
+    display: grid;
+    gap: 20px;
+    padding: 0 30px;
+    margin: 0;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .containerImg3Y4 {
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .serviciosImg,
+  .faldasImg,
+  .pantalonesImg,
+  .vestidosImg {
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .titleImage {
+    font-size: 1.5rem;
+  }
+
+}

@@ -1,0 +1,25 @@
+.styledMarked {
+  background-color: yellow;
+  font-weight: bolder;
+  border-radius: 2px;
+}
+
+.styledItem {
+  color: black;
+  margin-left: -1px;
+  display: block;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.styledItem:hover {
+  background-color: #4c91ba;
+  color: white;
+}
+
+.styledItem:hover span {
+  color: black;
+}

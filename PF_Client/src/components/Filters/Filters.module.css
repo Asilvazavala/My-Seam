@@ -1,0 +1,13 @@
+.containerFilters {
+  display: flex;
+  justify-content: center;
+}
+
+.hideFilters {
+  display: none;
+}
+
+.buttonFilters {
+  font-size: 20px;
+  padding: 10px;
+}

@@ -1,0 +1,146 @@
+.main {
+  padding: 40px;
+  font-size: 30px;
+  height: auto;
+  width: 650px;
+  background-color: rgba(0, 0, 0, 0.038);
+  border-radius: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.name {
+  margin: -60px 0 0 -30px;
+  font-weight: bolder;
+  font-size: 40px;
+}
+
+
+.buttonCart {
+  cursor: pointer;
+  margin: 15px 15px 15px 0;
+  }
+
+  .buttonCart:hover {
+    color: rgb(40, 63, 167);
+  }
+
+  .buttonFavourites {
+    cursor: pointer;
+    }
+    
+  .buttonFavourites:hover {
+    color: rgb(255, 0, 0)
+  }
+
+.quantity button {
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    height: 1.7rem;
+    width: 1.7rem;
+  }
+  
+  .quantity input {
+    font-size: 1.14rem;
+    outline: 2px solid #000;
+    background-color: white;
+    color: black;
+    outline-offset: -2px;
+    text-align: center;
+    width: 2rem;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  
+  .buttonLess {
+    margin-left: 15px;
+  }
+  
+  .buttonDeleteItem {
+    margin-bottom: 15px;
+  }
+  /* Alerta producto agregado al carrito */
+.notifySlideIn {
+  animation-duration: 4s;
+  animation-delay: -1s;
+  animation-name: slidein;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+  0% {
+      top: -100%;
+  }
+
+  40% {
+      top: 90px;
+  }
+
+  60% {
+      top: 90px;
+  }
+
+  100% {
+      top: -100%;
+  }
+}
+
+
+  /* Responsive */
+@media only screen and (max-width: 1100px) {
+  .main {
+    max-width: 500px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .main {
+    font-size: 25px;
+    max-width: 370px;
+  }
+  .name {
+    margin: -50px 0 0 -30px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .main {
+    font-size: 15px;
+    max-width: 300px;
+  }
+  .name {
+    margin: -50px 0 0 -30px;
+    font-size: 25px;
+  }
+  .buttonCart {
+    font-size: 12px;
+    width: 120px;
+    margin-bottom: 10px;
+    padding: 5px 20px;
+
+    }
+    .buttonFavourites {
+    font-size: 12px;
+    width: 120px;
+    padding: 5px 20px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+  .main {
+    font-size: 14px;
+    max-width: 250px;
+  }
+  .name {
+    font-size: 22px;
+  }
+}

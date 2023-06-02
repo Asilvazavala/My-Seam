@@ -1,0 +1,63 @@
+/* General */
+
+.quantityResults {
+  color: black;
+  font-size: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.conatinerResults {
+  position: absolute;
+  background-color: rgb(228, 225, 225);
+  z-index: 1;
+}
+
+.inputSearch {
+  margin-top: 15px;
+}
+
+.buttonSearch {
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+
+
+/* Responsive SearchBar */
+
+@media only screen and (max-width: 1200px) {
+  .inputSearch {
+    margin-top: 25px;
+  }
+  .buttonSearch {
+    margin-top: 25px;
+  }
+}
+
+@media only screen and (max-width: 730px) {
+  .inputSearch {
+    width: 100px;
+    margin-right: 0px;
+  }
+  .buttonSearch {
+    margin-left: 5px;
+  }
+}
+
+
+@media only screen and (max-width: 430px) {
+  .inputSearch {
+    max-width: 220px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .containerSerchBar {
+    flex-wrap: wrap;
+  }
+  .buttonSearch {
+    margin: 10px 0 0 0;
+  }
+}
+

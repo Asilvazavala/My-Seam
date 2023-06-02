@@ -1,0 +1,47 @@
+.landingVideo{
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;  
+  max-width: 100%; 
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.containerLanding {  
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.buttonToHome {
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  font-size: 2rem;
+  transition: all 0.7s ease;
+  background-color: #f46337;
+  font-weight: bolder;
+  margin-top: 50vh;
+}
+
+.buttonToHome:hover {
+  font-size: 2.5rem;
+  color: #f46337;
+  background-color: black;
+  font-weight: bolder;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 600px) {
+  .buttonToHome {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .buttonToHome {
+    font-size: 1rem;
+  }
+} 
