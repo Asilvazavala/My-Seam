@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Sections.module.css'
 import imgVestidos from '../../assets/images/Vestido.jpg'
-import imgPantalones from '../../assets/images/Pantalones.jpg'
+import imgPantalones from '../../assets/images/Pantalones.jpeg'
 import imgFaldas from '../../assets/images/Falda.jpg'
 import imgServicios from '../../images/costura2.jpg'
 import { useDispatch, useSelector } from 'react-redux';

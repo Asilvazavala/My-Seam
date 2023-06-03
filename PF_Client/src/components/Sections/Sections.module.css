@@ -121,19 +121,18 @@
   .faldasImg,  
   .pantalonesImg,
   .vestidosImg {
-    width: 250px;
+    min-width: 250px;
     height: 250px;
   }
-
 }
 
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 500px) {
   .serviciosImg,
   .faldasImg,  
   .pantalonesImg,
   .vestidosImg {
-    width: 150px;
-    height: 150px;
+    width: 12rem;
+    height: 12rem;
   }
 
   .titleImage {
@@ -149,4 +148,4 @@
     width: 120px;
     height: 120px;
   }
-}
+} */
