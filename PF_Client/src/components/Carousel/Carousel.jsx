@@ -1,18 +1,14 @@
 import React from 'react'
 import promo1 from '../../images/promociones1.jpg'
-// import promo2 from '../../images/promociones2.jpg'
-import promo2 from '../../assets/images/finTemporada.png'
-import promo3 from '../../images/promociones3.jpg'
+import promo2 from '../../assets/images/finTemporada.webp'
+import promo3 from '../../images/promociones3.webp'
 import styles from './Carousel.module.css'
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 export const Carousel = () => {
-  // Me traigo los estados del reducer 
-  let products = useSelector((state) => state.products);
 
   return (
-    <div className={products.length > 0 ? styles.containerPromotion : styles.hideCarousel}>
+    <div className={styles.containerPromotion}>
       <div id="carousel" className="carousel slide carousel-dark" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
@@ -34,7 +30,7 @@ export const Carousel = () => {
           {/* Imagen 2 */}
           <Link to= {'/promotions'}>
             <div className="carousel-item">
-              <img src={promo2} className={styles.imgCarousel} alt="promo2" title="Haz clic para ver más detalles"/>
+              <img loading='lazy' decoding='async' src={promo2} className={styles.imgCarousel} alt="promo2" title="Haz clic para ver más detalles"/>
               <div className="carousel-caption d-md-block">
                 <p className={styles.terminosCondiciones}>Aplican términos y condiciones.</p>
               </div>
@@ -44,7 +40,7 @@ export const Carousel = () => {
           {/* Imagen 3 */}
           <Link to= {'/promotions'}>
             <div className="carousel-item">
-              <img src={promo3} className={styles.imgCarousel} alt="promo3" title="Haz clic para ver más detalles"/>
+              <img loading='lazy' decoding='async' src={promo3} className={styles.imgCarousel} alt="promo3" title="Haz clic para ver más detalles"/>
               <div className="carousel-caption d-md-block">
               </div>
             </div>

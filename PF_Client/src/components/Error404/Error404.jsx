@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Error404.module.css'
 import { Link } from 'react-router-dom'
-import image404 from '../../assets/images/404.png'
+import image404 from '../../assets/images/404.webp'
 
 export const Error404 = () => {
   return (

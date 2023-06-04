@@ -107,7 +107,7 @@ export const CardProducts = ({ id, image, name, price, description }) => {
         <li className={currentTheme === "dark" ? styles.cardDarkTheme : styles.cardLightTheme}>          
           <Link className={styles.Link} to= {`/ProductDetail/${id}`}>
             {/* Elementos de la card */}
-            <img className={styles.imgCenter} src={image[0]} alt={name} width='200px' height='210px' title="Haz clic para ver más detalles" />
+            <img loading='lazy' decoding='async' className={styles.imgCenter} src={image[0]} alt={name} width='200px' height='210px' title="Haz clic para ver más detalles" />
             <StarRank />
           </Link>
           <Icon as={BsFillCartPlusFill} w={8} h={8} className={styles.buttonCart} onClick={handleCart} title="Agregar al carrito"/>

@@ -1,63 +1,60 @@
 import React from 'react'
 import styles from './Sections.module.css'
-import imgVestidos from '../../assets/images/Vestido.jpg'
-import imgPantalones from '../../assets/images/Pantalones.jpeg'
-import imgFaldas from '../../assets/images/Falda.jpg'
-import imgServicios from '../../images/costura2.jpg'
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 import { filterByCategory } from '../../redux/actions';
 
 export const Sections = () => {
   // Me traigo los estados del reducer 
-  let products = useSelector((state) => state.products);
   const dispatch = useDispatch()
+  let navigate = useNavigate();
 
+  const scrollToCategories = () => {
+    const categoriesSection = document.getElementById('categories');
+    if (categoriesSection) {
+      categoriesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  
   const handleFilterByCategory = (e) => {
     const category = e.target.id;
     dispatch(filterByCategory(category));
+    scrollToCategories()
 }
 
   return (
-    <div className={products.length > 0 ? styles.mainContainer : styles.hideSections}>
+    <div className={styles.mainContainer}>
       <h4 className={styles.titleSections}>Secciones populares</h4>
-      <div className={styles.containerSections} title="Haz clic para ver más detalles">
-
-        {/* Imagen 1 */}
-        <a href="#categories">
-          <div className={styles.containerVestidos}>
-            <img className={styles.vestidosImg} id={'Vestidos'} onClick={(e) => handleFilterByCategory(e)} src={imgVestidos} alt='imgVestidos'/>
-            <p className={styles.titleImage}>Vestidos</p>
+      <div className={styles.cardsContainer}>
+        
+          <div id={'Pantalones'} onClick={(e) => handleFilterByCategory(e)} className={styles.card1}>
+            <h2>Pantalones</h2>
           </div>
-        </a>
 
-        {/* Imagen 2 */}
-        <a href="#categories">
-          <div className={styles.containerPantalones}>
-            <img className={styles.pantalonesImg} id={'Pantalones'} onClick={(e) => handleFilterByCategory(e)} src={imgPantalones} alt='imgPantalones'/>
-            <p className={styles.titleImage}>Pantalones</p>
+          <div id={'Camisas'} onClick={(e) => handleFilterByCategory(e)} className={styles.card2}>
+            <h2>Camisas</h2>
           </div>
-        </a>
 
-        {/* Imagen 3 */}
-        <div className={styles.containerImg3Y4}>
-        <a href="#categories">
-            <div className={styles.containerFaldas}>
-              <img className={styles.faldasImg} id={'Faldas'} onClick={(e) => handleFilterByCategory(e)} src={imgFaldas} alt='imgFaldas'/>
-              <p className={styles.titleImage}>Faldas</p>
-            </div>
-          </a>
+          <div id={'Faldas'} onClick={(e) => handleFilterByCategory(e)} className={styles.card3}>
+            <h2>Faldas</h2>
+          </div>
 
-          {/* Imagen 4 */}
-          <NavLink to={"/service"}>
-            <div className={styles.containerServicios}>
-              <img className={styles.serviciosImg} src={imgServicios} alt='imgServicios'/>
-              <p className={styles.titleImage}>Servicios</p>
-            </div>
-          </NavLink>
         </div>
 
-      </div>
+        <div className={styles.cardsContainer}>
+            <div id={'Camperas'} onClick={(e) => handleFilterByCategory(e)} className={styles.card4}>
+              <h2>Sudaderas</h2>
+            </div>
+
+            <div id={'Vestidos'} onClick={(e) => handleFilterByCategory(e)} className={styles.card5}>
+              <h2>Vestidos</h2>
+            </div>
+
+            <div className={styles.card6} onClick={() => navigate('/service')}>
+              <h2>Servicios</h2>
+            </div>
+        </div>
+
     </div>
   )
 }

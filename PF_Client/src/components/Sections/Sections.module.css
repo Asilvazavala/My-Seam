@@ -1,151 +1,125 @@
-/* General */
-.titleImage {
-  display: block;
-  font-size: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
-  font-weight: bolder;
-  transition: all 0.3s ease-in-out;
-  color: white;
-}
-
 .titleSections {
   margin: 100px 0 10px 30px;
   font-weight: bolder;
+  font-size: 35px;
 }
 
-.hideSections {
-  display: none;
-}
-
-/* Containers */
-.mainContainer {
-  margin-bottom: 150px;
-  width: 100%;
-}
-
-.containerSections {
-  width: 100%;
+.cardsContainer {
+  padding: 0 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   display: flex;
-  padding-right: 30px;
-  margin: 0;
-  box-sizing: border-box;
+  gap: 2%;
 }
 
-.containerServicios,
-.containerPantalones,
-.containerFaldas,
-.containerVestidos {
+.card1 {
+  background-image: url('../../assets/images/Pantalones.webp');
+}
+
+.card2 {
+  background-image: url('../../assets/images/Camisa.webp');
+}
+
+.card3 {
+  background-image: url('../../assets/images/Falda.jpg');
+}
+
+.card4 {
+  background-image: url('../../assets/images/sudadera.jpeg');
+}
+
+.card5 {
+  background-image: url('../../assets/images/Vestido.jpg');
+}
+
+.card6 {
+  background-image: url('../../assets/images/servicios.webp');
+}
+
+.card1,
+.card6 {
+  width: 50%;
+  height: 300px;
+  padding: 20px;
   position: relative;
-}
-
-.containerImg3Y4 {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-}
-
-/* Imagenes */
-
-.vestidosImg {
-  height: 400px;
-  padding: 10px 7px 20px 30px;
-  cursor: pointer;
+  transition: opacity .3s linear; 
   object-fit: cover;
-}
-
-.pantalonesImg {
-  height: 400px;
-  padding: 10px 7px 20px 7px;
+  overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
   cursor: pointer;
-  object-fit: cover;
 }
 
-.faldasImg {
-  height: 200px;
-  width: 100%;
-  padding: 10px 10px 7px 7px;
+.card2,
+.card3,
+.card4,
+.card5 {
+  width: 25%;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+  transition: opacity .3s linear; 
+  object-fit: cover;
+  background-size: cover;
+  overflow: hidden;
+  background-position: 50%;
   cursor: pointer;
-  object-fit: cover;
 }
 
-.serviciosImg {
-  height: 200px;
-  width: 100%;
-  padding: 7px 10px 20px 7px;
-  cursor: pointer;
-  object-fit: cover;
+
+
+.cardsContainer h2 {
+  font-size: 23px;
+  color: white;
+  background: black;
+  opacity: .8;
+  padding: 3px;
+  position: absolute;
+  top: 0%;
+  left: 0%;
 }
 
-.containerVestidos:hover img, .containerPantalones:hover img, .containerFaldas:hover img, .containerServicios:hover img {
+.card1:hover,
+.card2:hover,
+.card3:hover,
+.card4:hover,
+.card5:hover,
+.card6:hover {
   opacity: 40%;
 }
 
 /* Responsive */
+@media (max-width: 650px) {
+  .cardsContainer span {
+    font-size: 0.8rem;
+  }
 
-@media only screen and (max-width: 900px) {
-  .containerSections {
-    display: flex;
+  .cardsContainer {
     flex-wrap: wrap;
-    gap: 20px;
-    width: 100%;
-    margin: 0 2%;
+    justify-content: space-evenly;
+    gap: 2rem;
   }
 
-  .containerImg3Y4 {
-    flex-direction: row;
-    gap: 20px;
-    width: 100%;
-  }
-
-  .serviciosImg,
-  .faldasImg,  
-  .pantalonesImg,
-  .vestidosImg {
-    width: 350px;
-    height: 350px;
-    padding: 0;
-  }
-
-  .titleImage {
-    font-size: 1.5rem;
-  }
-
-}
-
-@media only screen and (max-width: 750px) {
-  .serviciosImg,
-  .faldasImg,  
-  .pantalonesImg,
-  .vestidosImg {
-    min-width: 250px;
-    height: 250px;
+  .card1,
+  .card6,
+  .card2,
+  .card3,
+  .card4,
+  .card5 {
+    flex-grow: 1;
+    max-width: 300px;
   }
 }
 
-/* @media only screen and (max-width: 500px) {
-  .serviciosImg,
-  .faldasImg,  
-  .pantalonesImg,
-  .vestidosImg {
-    width: 12rem;
-    height: 12rem;
-  }
-
-  .titleImage {
-    font-size: 1.1rem;
+@media (max-width: 420px) {
+  .card1,
+  .card6,
+  .card2,
+  .card3,
+  .card4,
+  .card5 {
+    flex-basis: 150px;
+    max-width: 257px;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .serviciosImg,
-  .faldasImg,  
-  .pantalonesImg,
-  .vestidosImg {
-    width: 120px;
-    height: 120px;
-  }
-} */
