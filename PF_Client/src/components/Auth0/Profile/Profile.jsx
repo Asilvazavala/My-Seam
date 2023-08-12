@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavBar } from "../../NavBar/NavBar";
-import { Footer } from "../../Footer/Footer";
 // chakra
-import { Image } from "@chakra-ui/react";
-import { Spinner } from "@chakra-ui/react";
-import { Box } from "@chakra-ui/react";
-import { Text } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { Box, Text, Spinner, Image } from "@chakra-ui/react";
 import { getUserByEmail } from "../../../redux/actions";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useFunctions } from '../../../hooks/useFunctions';
 
 const Profile = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { dispatch, useSelector } = useFunctions();
   const { user, isAuthenticated, isLoading } = useAuth0();
+
   const myState = JSON.parse(localStorage.getItem('myState'));
   const userInfo = useSelector((state)=>state.userInfo);
   const [form, setForm]= useState({
@@ -28,8 +22,6 @@ const Profile = () => {
       address: myState.address,
       image: myState.image
   })
-
-  console.log(userInfo);
 
   const changeHandler = (event) => {
     const property = event.target.name;

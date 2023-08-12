@@ -26,6 +26,7 @@
     "cloudinary-react": "^1.8.1",
     "framer-motion": "^10.9.1",
     "react": "^18.2.0",
+    "react-content-loader": "^6.2.1",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-icons": "^4.8.0",

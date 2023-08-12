@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Card.module.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts, getUsers } from '../../redux/actions';
+import { getUsers } from '../../redux/actions';
 import { CardProducts } from './CardProducts/CardProducts';
 import { Loading } from '../Loading/Loading';
-import { Categories } from '../Categories/Categories'
-export const Card = () => {
-  // Estado para actualizar la página actual
-  const [currentPage, setCurrentPage] = useState(1);
+import { Categories } from '../Categories/Categories';
+import { useFunctions } from '../../hooks/useFunctions';
 
-  // Estado de los productos que se muestran por página
+export const Card = () => {
+  const { dispatch, useSelector } = useFunctions();
+
+  const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage, setProductsPerPage] = useState(4);
 
-  // Para ejecutar las funciones de las actions
-  const dispatch = useDispatch();
-
-  // Me traigo los estados del reducer
   const allProducts = useSelector((state) => state.allProducts);
   const users = useSelector((state) => state.users);
-
-  // Filtrar los usuarios activos
   const activeUsers = users.filter((user) => user.isActive);
 
   // Delimitar el índice de los productos a paginar
@@ -30,7 +24,6 @@ export const Card = () => {
   const tendencias = allProducts.slice(4, 8);
   const offerProducts = allProducts.slice(9, 13);
 
-  // Ejecuto en automático la action para obtener la info de la DB y actualizar las card
   useEffect(() => {
     dispatch(getUsers());
   }, []);
@@ -42,10 +35,8 @@ export const Card = () => {
         <ul className={styles.cardContainer}>
           {currentProducts.length > 0 ? (
             currentProducts.map((product) => {
-              // Buscar el usuario asociado al producto
               const user = activeUsers.find((user) => user.id === product.userid);
 
-              // Si el usuario está activo, mostrar el producto
               if (user) {
                 return (
                   <CardProducts
@@ -58,8 +49,6 @@ export const Card = () => {
                   />
                 );
               }
-
-              // Si el usuario está inactivo, ignorar el producto
               return null;
             })
           ) : (
