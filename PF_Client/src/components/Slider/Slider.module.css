@@ -1,0 +1,104 @@
+.container {
+  width: 95vw;
+  position: relative;
+}
+
+.rightArrow,
+.leftArrow {
+  opacity: .5;
+  font-size: 1.7rem;
+  color: var(--white);
+  position: absolute;
+  cursor: pointer;
+  top: 40%;
+  transition: .3s ease-in-out;
+  transition-property: opacity;
+}
+
+.rightArrow:hover,
+.leftArrow:hover {
+  opacity: 1;
+}
+
+.rightArrow.disabled,
+.leftArrow.disabled {
+  pointer-events: none;
+  opacity: 0;
+  cursor: default;
+}
+
+.container .rightArrow {
+  right: 0;
+}
+
+.container .leftArrow {
+  left: 0;
+}
+
+.slider {
+  display: grid;
+  grid-auto-flow: column;
+  scroll-behavior: auto;
+  overflow-y: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  background: var(--grayDark);
+  padding: .7rem;  
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  scroll-snap-align: start;
+  color: var(--white);
+  min-height: 70px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--white);
+  padding: 0 1.4rem 0 .8rem;
+}
+
+
+
+@media (max-width: 800px) {
+  .container .rightArrow,
+  .container .leftArrow {
+    opacity: 0;
+  }
+
+  .container {
+    width: 88vw;
+  }
+
+  .card {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 86vw;
+  }
+
+  .card {
+    min-height: 30px;
+    min-width: 130px;
+  }
+
+  .secondTeam {
+    margin-bottom: .7rem;
+  }
+}
+
+/* .card:nth-child(odd) {
+  background: var(--red);
+}
+
+.card:nth-child(even) {
+  background: var(--blue);
+} */

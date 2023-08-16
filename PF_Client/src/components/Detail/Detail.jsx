@@ -8,8 +8,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import st from "./Detail.module.css";
-import DetImage from "./DetImages/DetImages";
+import ItemDetail from "./ItemDetail/ItemDetail";
 import DetailText from "./DetailText/DetailText";
 
 export default function Detail({
@@ -17,8 +16,6 @@ export default function Detail({
   handleEdition,
   handleDelete,
   details,
-  currentImg,
-  setCurrentImg,
   InputHandler,
   SendCange,
   EditionPDetail,
@@ -56,20 +53,14 @@ export default function Detail({
       ) : (
         ""
       )}
-      <table className={st.detailTable}>
-        <tr>
-          <DetImage
+      <section>
+        <article>
+          <ItemDetail
             image={image}
-          />
-          <DetailText
             details={details}
-            InputHandler={InputHandler}
-            SendCange={SendCange}
-            EditionPDetail={EditionPDetail}
-            edit={edit}
           />
-        </tr>
-      </table>
+        </article>
+      </section>
     </div>
   );
 }

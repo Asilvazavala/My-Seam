@@ -241,24 +241,18 @@ const rootReducer = (state = initialState, action) => {
                     cart: [...state.cart, { ...action.payload, quantity: 1 }],
                   };
 
-    case ADD_FAVOURITE: 
-            
-            let itemInFav = state.favourites.find(
-                (product) => product.id === action.payload.id
-            );
-            return itemInFav
-                ? {
-                    ...state,
-                    favourites: state.favourites.map((product) =>
-                        product.id === action.payload.id
-                            ? { ...product }
-                            : product
-                    ),
-                  }
-                : {
-                    ...state,
-                    favourites: [...state.favourites],
-                  };
+    case ADD_FAVOURITE:   
+      let favItem = state.favourites.find((product) => product.id === action.payload.id);
+       
+      return favItem 
+        ? {
+            ...state,
+            favourites: state.favourites.filter((p) => p.id !== action.payload.id)
+          }
+        : {
+            ...state,
+            favourites: [...state.favourites, action.payload]
+          }
         
     case DELETE_CART:
         let deleteProduct = state.cart.filter((p) => p.id !== action.payload);

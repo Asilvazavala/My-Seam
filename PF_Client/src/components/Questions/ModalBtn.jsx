@@ -15,6 +15,7 @@ import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getProductQuestions, getServiceQuestions } from "../../redux/actions";
+import styles from './Questions.module.css'
 
 export default function ModalBtn({ sell, userId, ver, q_id, id, name }) {
   // console.log(id);
@@ -61,7 +62,7 @@ export default function ModalBtn({ sell, userId, ver, q_id, id, name }) {
     } else {alert('Debe registrarse para realizar una pregunta');}
   };
   return (
-    <>
+    <main className={styles.containerModal}>
       <Button onClick={onOpen}>{ver ? "Responder" : "Haz una Pregunta"}</Button>
       <Modal
         initialFocusRef={initialRef}
@@ -102,6 +103,6 @@ export default function ModalBtn({ sell, userId, ver, q_id, id, name }) {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </>
+    </main>
   );
 }

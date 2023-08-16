@@ -14,10 +14,6 @@ export default function DetailText({
     SendCange,
     EditionPDetail,
     edit,
-    setTotalPrice,
-    totalQuantity,
-    setTotalQuantity,
-    el
   }){
     // Info de Auth0
     const { isAuthenticated, loginWithRedirect } = useAuth0();

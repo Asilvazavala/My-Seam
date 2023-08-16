@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import styles from './CardProducts.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useFunctions } from '../../../hooks/useFunctions';
-import { getProducts, addCart } from '../../../redux/actions';
+import { getProducts, addCart, addFavourite } from '../../../redux/actions';
 //Chakra
 import { useColorMode, Icon, Alert, AlertIcon } from '@chakra-ui/react'
 import { BsFillCartPlusFill, BsFillHeartFill } from "react-icons/bs";
 import StarRank from "../../StarRank/StarRank.jsx"
 
 export const CardProducts = ({ id, image, name, price, description }) => {
-  const { dispatch, NavLink, useSelector } = useFunctions();
+  const { dispatch, NavLink, useSelector, goTop } = useFunctions();
 
   // Cambiar , id, image, name, price, d tema entre oscuro/claro 
   const currentTheme = useColorMode().colorMode
@@ -25,7 +25,7 @@ export const CardProducts = ({ id, image, name, price, description }) => {
   
   // Buscar si el producto esta en favoritos
   const favProduct = allProducts.find(el => el.id == id)
-  const indexProduct = favourites.findIndex(el => el.id == favProduct.id)
+  const indexProduct = favourites.findIndex(el => el.id == favProduct?.id)
   
   // Muestra alerta/notificación del producto añadido al carrito de compras/Favoritos
   const [notify, setNotify] = useState(false);
@@ -49,25 +49,6 @@ export const CardProducts = ({ id, image, name, price, description }) => {
     dispatch(addCart(cartProduct));
     showNotify();
   }
-
-
-  // Agregar producto a favoritos
-  const handleFavourites =  () => { 
-    if (isAuthenticated) {
-      // Validar si ya existe el producto en favoritos
-      if (indexProduct >= 0) {   
-        favourites.splice(indexProduct, 1)
-        showNotifyDeleteFav()
-      } else {
-        favourites.push(favProduct)   
-        showNotifyFav()
-        dispatch(getProducts())
-        }
-    } else {
-      loginWithRedirect()
-    }
-  }
-
  
   return (
     <div>
@@ -97,16 +78,16 @@ export const CardProducts = ({ id, image, name, price, description }) => {
 
       <div key = {id} >
         <li className={currentTheme === "dark" ? styles.cardDarkTheme : styles.cardLightTheme}>          
-          <NavLink className={styles.Link} to= {`/ProductDetail/${id}`}>
+          <NavLink className={styles.Link} to= {`/ProductDetail/${id}`} onClick={goTop}>
             <img loading='lazy' decoding='async' className={styles.imgCenter} src={image[0]} alt={name} width='200px' height='210px' title="Haz clic para ver más detalles" />
-            <StarRank />
           </NavLink>
           <Icon as={BsFillCartPlusFill} w={8} h={8} className={styles.buttonCart} onClick={handleCart} title="Agregar al carrito"/>
-          <Icon as={BsFillHeartFill} color={indexProduct >= 0  ? 'red' : ''} w={8} h={8} className={indexProduct >= 0  ? styles.favItem : styles.buttonFavourites} onClick={handleFavourites} title="Agregar a favoritos"/>
-          <NavLink className={styles.Link} to= {`/ProductDetail/${id}`}>
-            <h1 className={styles.textMedium} title="Haz clic para ver más detalles">{name}</h1>
-            <h2 className={styles.textMedium} title="Haz clic para ver más detalles"> ${price}</h2>
-            <h3 className={styles.textSmall}> {description}</h3>
+          <Icon as={BsFillHeartFill} color={indexProduct >= 0  ? 'red' : ''} w={8} h={8} className={indexProduct >= 0  ? styles.favItem : styles.buttonFavourites} onClick={() => dispatch(addFavourite(favProduct))} title="Agregar a favoritos"/>
+          <NavLink className={styles.Link} to= {`/ProductDetail/${id}`} onClick={goTop} >
+            <article className={styles.articleDescription}>
+              <h1 className={styles.articleName} title="Haz clic para ver más detalles">{name}</h1>
+              <h2 className={styles.articlePrice} title="Haz clic para ver más detalles"> ${price}</h2>
+            </article>
           </NavLink>
         </li>                      
       </div>

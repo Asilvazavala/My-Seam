@@ -22,7 +22,6 @@ export const Card = () => {
   const currentProducts = allProducts.slice(firstProductIndex, lastProductIndex);
 
   const tendencias = allProducts.slice(4, 8);
-  const offerProducts = allProducts.slice(9, 13);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -62,31 +61,6 @@ export const Card = () => {
             tendencias.map((product) => {
 
                    const user = activeUsers.find((user) => user.id === product.userid);
-
-                if (user) {
-                return (
-                  <CardProducts
-                    id={product.id}
-                    key={product.id}
-                    image={product.image}
-                    name={product.name}
-                    price={product.price}
-                    description={product.description}
-                  />
-                );
-              }
-            })
-          ) : (
-            <Loading />
-          )}
-        </ul>
-
-        <h4 className={offerProducts.length > 0 ? styles.titleSections : styles.hideCards}>También puede interesarte</h4>
-        <ul className={styles.cardContainer}>
-          {offerProducts.length > 0 ? (
-            offerProducts.map((product) => {
-
-                 const user = activeUsers.find((user) => user.id === product.userid);
 
                 if (user) {
                 return (
