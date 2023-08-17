@@ -4,18 +4,13 @@ import { NavBar } from '../../NavBar/NavBar'
 import { CardProducts } from '../../Card/CardProducts/CardProducts';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPromotions } from '../../../redux/actions';
-import { Loading } from '../../Loading/Loading'
 import { Footer } from '../../Footer/Footer'
 
 export const Promotions = () => {
-  // Me traigo los estados del reducer 
   let promotions = useSelector((state) => state.promotions);
-  const allProducts = useSelector((state) => state.allProducts);
 
-  // Para ejecutar las funciones de las actions
   const dispatch = useDispatch();
 
-  // Ejecuto en automático la action para obtener la info de la DB y actualizar las card
   useEffect(() => {
   dispatch(getPromotions());
   }, [])
@@ -41,7 +36,7 @@ export const Promotions = () => {
             />
           )
         }) 
-        : <Loading />
+        : null
        }
       </ul>  
       <Footer />

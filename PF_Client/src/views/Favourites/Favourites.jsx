@@ -2,18 +2,12 @@ import React, { useEffect } from 'react'
 import styles from './Favourites.module.css'
 import { NavBar } from '../../components/NavBar/NavBar'
 import { CardProducts } from '../../components/Card/CardProducts/CardProducts'
-import { getProducts } from '../../redux/actions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNotifications } from '../../hooks/useNotifications';
 
 export const Favourites = () => {
-  const dispatch = useDispatch()
   const favourites = useSelector(state => state.favourites)
   const { ToastContainer } = useNotifications();
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [])
 
   return (
     <div>

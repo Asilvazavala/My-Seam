@@ -1,7 +1,6 @@
 import React, {useEffect,useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Paginado } from '../Paginado/Paginado';
-import { Loading } from '../Loading/Loading';
 import { getUsers } from '../../redux/actions';
 import { CardUser } from './CardUser/CardUser';
 import styles from "./CardUsers.module.css"
@@ -56,7 +55,7 @@ export const CardUsers =()=>{
                             />
                         )
                     })
-                    :<Loading/>
+                    : null
                 }
           
             </ul>

@@ -5,21 +5,13 @@
 }
 
 /* Card */
-
 .cardContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, min(min(100%, 25%)));
-  transition: all 0.8s ease;
-  width: 100%;
 }
 
 .hideCards {
   display: none;
-}
-
-.buttonVerTodo {
-  margin: 30px 0 150px 30px;
-  left: 45%;
 }
 
 /* Responsive */

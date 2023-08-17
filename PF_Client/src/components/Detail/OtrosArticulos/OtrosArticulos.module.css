@@ -6,6 +6,7 @@
 }
 
 .rightMenu h2 {
+  margin-top: .5rem;
   margin-bottom: 20px;
   margin-left: 25px;
   font-size: 30px;
@@ -44,11 +45,11 @@
 .rightMenu h3 {
   font-size: 1.5rem;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: text-decoration 0.3s ease;
 }
 
 .rightMenu h3:hover {
-  color: rgba(255, 102, 0, 0.7);
+  text-decoration: underline;
 }
 
 @media (max-width: 1000px) {

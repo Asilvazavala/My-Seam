@@ -61,6 +61,8 @@ export const SearchBar = () => {
     setSearch(item)
     dispatch(searchProductByName(item))
     setSearch('');
+    const categories = document.getElementById('categories');
+    categories.scrollIntoView({ behavior: 'smooth' });
   }
 
   return (

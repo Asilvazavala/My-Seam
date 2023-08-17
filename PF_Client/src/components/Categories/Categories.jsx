@@ -32,11 +32,6 @@ export const Categories = () => {
   const lastProductIndex = currentPage * productsPerPage;
   const firstProductIndex = lastProductIndex - productsPerPage;
   const currentProducts = products.slice(firstProductIndex, lastProductIndex);
-  
-   // Ejecuto en automático la action para obtener la info de la DB y actualizar las card
-   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
 
   function handleFilterByPrice(e){
     // e.preventDefault()
@@ -90,8 +85,10 @@ export const Categories = () => {
 
   // Ejecuto en automático la action para obtener la info de la DB y actualizar las card
   useEffect(() => {
-    dispatch(getProducts());
-    }, [])
+    if (currentProducts.length === 0) {
+      dispatch(getProducts());
+    }
+  }, [])
 
   return (
     <div className={currentProducts.length > 0 ? '' : styles.hide}>

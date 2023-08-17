@@ -41,7 +41,6 @@ export const CardProducts = ({ id, image, name, price }) => {
       }
     dispatch(addFavourite(currentProduct));
   }
-  console.log(currentProduct);
   
   function handleClick(currentProduct) {
     dispatch(getSimilarProducts(currentProduct))

@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import Payment from "./Payment/Payment";
 import { Checkout } from "./Checkout";
 import InternalProvider from "../../hooks/ContextProvider";
-import { Loading } from '../../components/Loading/Loading'
 // MercadoPago
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import axios from "axios"
@@ -46,7 +45,7 @@ export const MercadoPago = () => {
   const renderSpinner = () => {
      if (isLoading) {
       return (
-          <Loading />
+          <p>Loading</p>
         )
      }
   }

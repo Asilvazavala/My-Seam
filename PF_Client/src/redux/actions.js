@@ -27,6 +27,8 @@ export const DELETE_FAVOURITE = "DELETE_FAVOURITE";
 export const UPDATE_CART= "UPDATE_CART";
 export const UPDATE_CART_SET = "UPDATE_CART_SET";
 export const GET_SIMILAR_PRODUCTS = "GET_SIMILAR_PRODUCTS";
+import { useNotifications } from '../hooks/useNotifications'
+const { notificationError } = useNotifications()
 
 export const getUsers = () => {
   return async function (dispatch) {
@@ -68,7 +70,7 @@ export const searchProductByName = (search) => {
       let json = await axios.get(`/product?name=${search}`);
       dispatch({ type: SEARCH_PRODUCT_BY_NAME, payload: json.data });
     } catch (error) {
-      alert(`El producto "${search}" no existe, intenta con otro`);
+      notificationError(`El producto "${search}" no existe, intenta con otro`);
     }
   };
 };

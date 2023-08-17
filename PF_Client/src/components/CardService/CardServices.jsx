@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getServices, getUsers } from '../../redux/actions';
 import { CardService } from './CardService/CardService';
 import { Paginado } from '../Paginado/Paginado';
-import { Loading } from '../Loading/Loading';
 import { Filters } from '../../components/Filters/FiltersServices';
 
 export const CardServices = () => {
@@ -56,7 +55,7 @@ export const CardServices = () => {
             );
           })
         ) : (
-          <Loading />
+          null
         )}
       </ul>
 

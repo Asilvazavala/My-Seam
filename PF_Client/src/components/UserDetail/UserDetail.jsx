@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import style  from './UserDetail.module.css'
 import { NavBar } from "../NavBar/NavBar";
-import { getProducts, getServices, getUser } from "../../redux/actions";
+import {  getServices, getUser } from "../../redux/actions";
 import { CardProducts } from "../Card/CardProducts/CardProducts";
-import { Loading } from "../Loading/Loading";
 import { CardService } from "../CardService/CardService/CardService";
 
 export  function UserDetail(){
@@ -25,7 +24,6 @@ export  function UserDetail(){
         let prodID =urlID.split('/')
         // eslint-disable-next-line
         dispatch(getUser(prodID[prodID.length -1]));
-        dispatch(getProducts())
         dispatch(getServices())
     },[dispatch])
 
