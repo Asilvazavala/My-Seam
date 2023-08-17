@@ -26,6 +26,7 @@ export const DELETE_CART = "DELETE_CART";
 export const DELETE_FAVOURITE = "DELETE_FAVOURITE";
 export const UPDATE_CART= "UPDATE_CART";
 export const UPDATE_CART_SET = "UPDATE_CART_SET";
+export const GET_SIMILAR_PRODUCTS = "GET_SIMILAR_PRODUCTS";
 
 export const getUsers = () => {
   return async function (dispatch) {
@@ -234,7 +235,14 @@ export const update_cart = (value) => ({
   type: UPDATE_CART,
   payload: value,
 });
+
 export const update_cart_set = (value)=>({
   type: UPDATE_CART_SET,
   payload: value,
 });
+
+export const getSimilarProducts = (product) => {
+  return function (dispatch)  {       
+    dispatch({ type: GET_SIMILAR_PRODUCTS, payload: product });
+  }
+};

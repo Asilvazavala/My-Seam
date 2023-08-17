@@ -109,17 +109,15 @@
     flex-grow: 1;
     max-width: 300px;
   }
+
+  .titleSections {
+    margin: 40px 0 10px 30px;
+  }
 }
 
 @media (max-width: 420px) {
-  .card1,
-  .card6,
-  .card2,
-  .card3,
-  .card4,
-  .card5 {
-    flex-basis: 150px;
-    max-width: 257px;
+  .titleSections {
+    font-size: 30px;
   }
 }
 

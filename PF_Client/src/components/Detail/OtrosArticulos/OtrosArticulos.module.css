@@ -1,0 +1,88 @@
+/* Right Menu */
+.rightMenu {
+  display: flex;
+  flex-direction: column;
+  width: 28vw;
+}
+
+.rightMenu h2 {
+  margin-bottom: 20px;
+  margin-left: 25px;
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+.rightMenu .rightMenuItem {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 15px;
+  margin: 0;
+  border-bottom: 1px solid gray;
+}
+
+.categories {
+  margin-top: 60px;
+}
+
+.rightMenu img {
+  width: 35%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: .4rem;
+  cursor: pointer;
+}
+
+.rightMenuItemText {
+  margin-left: 20px;
+}
+
+.rightMenu span {
+  color: rgb(255, 100, 0);
+  font-size: 1.4rem;
+}
+
+.rightMenu h3 {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.rightMenu h3:hover {
+  color: rgba(255, 102, 0, 0.7);
+}
+
+@media (max-width: 1000px) {
+  .rightMenu {
+    width: 75vw;
+    margin-top: 1rem;
+  }
+
+  .rightMenu img {
+    width: 20%;
+    height: auto;
+    border-radius: .3rem;
+  }
+
+  .rightMenu span {
+    font-size: 1.4rem;
+  }
+  
+  .rightMenu h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .rightMenu img {
+    width: 30%;
+    border-radius: .3rem;
+  }
+
+  .rightMenu span {
+    font-size: 1.3rem;
+  }
+  
+  .rightMenu h3 {
+    font-size: 1.4rem;
+  }
+}

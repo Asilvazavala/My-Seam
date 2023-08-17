@@ -1,7 +1,7 @@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const useFunction = () => {
+export const useNotifications = () => {
   const notificationSuccess = (notification) => {
     toast.success(notification, {
       position: "top-center",

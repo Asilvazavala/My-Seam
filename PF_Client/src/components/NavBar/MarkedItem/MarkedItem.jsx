@@ -9,14 +9,15 @@ export const MarkedItem = ({ item, search, onClick }) => {
     const left = item.name.slice(0, index);
     const right = item.name.slice(index + search.length);
     const center = item.name.slice(index, index + search.length);
+    const image = item.image;
 
     return {
-      left, center, right
+      left, center, right, image
     }
   };
 
   // Actualizar las letras marcadas
-  const {left, center, right} = useMemo(
+  const { left, center, right, image } = useMemo(
     () => getMarkedPositions(item, search),
     [item, search]);
 
@@ -29,6 +30,7 @@ export const MarkedItem = ({ item, search, onClick }) => {
   return (
     <div>
       <button className={styles.styledItem} onClick={hanldeClick}>
+        <img src={image} alt={image} />
         {left} 
         <span className={styles.styledMarked}>{center}</span> 
         {right}

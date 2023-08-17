@@ -24,11 +24,13 @@ import {GET_PRODUCTS,
     DELETE_FAVOURITE,
     UPDATE_CART,
     UPDATE_CART_SET,
+    GET_SIMILAR_PRODUCTS,
    nameAlphabet } from "./actions";
 
 const initialState = {
 products: [],
 allProducts: [],
+similarProducts: [],
 filterProducts: [],
 services: [],
 allServices: [],
@@ -278,6 +280,17 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                  cartLength: action.payload
+            }
+
+    case GET_SIMILAR_PRODUCTS:
+        const copyProducts = [...state.filterProducts]
+        const simProducts = copyProducts.filter(el => 
+            el.category === action.payload.category &&
+            el.id !== action.payload.id
+        )
+            return{
+                ...state,
+                similarProducts: simProducts
             }
 
     default:

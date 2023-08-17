@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { HashLink as NavLink } from 'react-router-hash-link';
 import styles from './NavBar.module.css';
 import Logo from '../../assets/images/logo_MySeam_full.png';
 import { SearchBar } from './SearchBar/SearchBar';
@@ -11,7 +12,6 @@ import { Avatar } from "@chakra-ui/react";
 import LoginButton from '../Auth0/Logiin/LoginButton';
 import LogoutButton from '../Auth0/Logout/LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
-import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getUserByEmail } from '../../redux/actions';
 
@@ -43,6 +43,13 @@ export const NavBar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+    const scrollToCategories = () => {
+      const categoriesElement = document.getElementById('categories');
+      setTimeout(() => {
+        categoriesElement.scrollIntoView({ behavior: 'smooth' });
+      }, 2500)
+    };
+
   return (
     <div className={styles.main}>
     {/* NavBar */}
@@ -56,11 +63,11 @@ export const NavBar = () => {
         <img className={styles.imgLogo} src={Logo} alt="Logo My Seam" />
       </NavLink>
 
-       {isSmallScreen && <SearchBar />}
+       {window.innerWidth < 1200 && window.innerWidth > 750 && <SearchBar />}
        {isSmallScreen && <Cart />}
 
       <button
-        className="navbar-toggler"
+        className={`${styles.menuMobile} navbar-toggler`}
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarTogglerDemo02"
@@ -80,7 +87,7 @@ export const NavBar = () => {
 
           {/* Categorías */}
           <li className="nav-item dropdown">
-            <NavLink className="nav-link dropdown-toggle active" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categorías
             </NavLink>
             <ul className="dropdown-menu">
@@ -90,7 +97,7 @@ export const NavBar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="dropdown-item" to="/home">
+                <NavLink className="dropdown-item" smooth to="/home#categories">
                   Productos
                 </NavLink>
               </li>
@@ -115,41 +122,6 @@ export const NavBar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Mi perfil
-            </NavLink>
-            <ul className="dropdown-menu">
-              <li>
-                <NavLink className="dropdown-item" to="/profile">
-                  Mi Perfil
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" to="#">
-                  Mis ventas
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" to="#">
-                  Mis compras
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" to="/favourites">
-                  Mis favoritos
-                </NavLink>
-              </li>
-              <li>
-                <hr className="dropdown-divider"></hr>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" to="#">
-                  Configuración
-                </NavLink>
-              </li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <NavLink style={{ textDecoration: "none" }} to="/profile">
               {isAuthenticated ? (
                 <>
                   <Avatar
@@ -165,12 +137,32 @@ export const NavBar = () => {
                 ""
               )}
             </NavLink>
-
-               
+            <ul className="dropdown-menu">
+              <li>
+                <NavLink className="dropdown-item" to="/profile">
+                  Mi Perfil
+                </NavLink>
+              </li>
+              {/* <li>
+                <NavLink className="dropdown-item" to="#">
+                  Mis ventas
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="dropdown-item" to="#">
+                  Mis compras
+                </NavLink>
+              </li> */}
+              <li>
+                <NavLink className="dropdown-item" to="/favourites">
+                  Mis favoritos
+                </NavLink>
               </li>
             </ul>
+          </li>
 
-            {!isSmallScreen && <SearchBar />}
+            </ul>
+            <SearchBar />
 
             <IconButton
               title= "Cambiar tema"

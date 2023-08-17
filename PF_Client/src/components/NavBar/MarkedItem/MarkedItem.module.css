@@ -6,17 +6,22 @@
 
 .styledItem {
   color: black;
-  margin-left: -1px;
-  display: block;
-  padding: 10px;
-  border: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
   width: 100%;
-  font-size: 20px;
-  text-decoration: none;
+  margin: 0;
+  padding: .4rem;
+}
+
+.styledItem img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
 }
 
 .styledItem:hover {
-  background-color: #4c91ba;
+  background: #4c91ba;
   color: white;
 }
 
