@@ -1,5 +1,5 @@
 import React from 'react'
-import promo1 from '../../images/promociones1.jpg'
+import promo1 from '../../images/promociones1.webp'
 import promo2 from '../../assets/images/finTemporada.webp'
 import promo3 from '../../images/promociones3.webp'
 import styles from './Carousel.module.css'

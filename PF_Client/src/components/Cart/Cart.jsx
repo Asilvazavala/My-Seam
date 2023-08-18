@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Cart.module.css'
 import { useSelector, useDispatch } from 'react-redux';
-import EmptyCart from '../../images//empty-cart.png'
+import EmptyCart from '../../images//empty-cart.webp'
 import { CartProducts } from './CartProducts/CartProducts';
 // Chakra
 import { BsFillCartFill } from "react-icons/bs";

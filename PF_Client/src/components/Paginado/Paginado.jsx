@@ -17,7 +17,7 @@ export const Paginado = ({ totalProducts, productsPerPage, setCurrentPage, curre
 
           {/* Botón Previous */}
           <li>
-            <button disabled={currentPage  === 1} className={styles.anteriorSiguiente} onClick={() => setCurrentPage(currentPage - 1)} >Anterior</button>
+            <button disabled={currentPage  === 1} className={styles.anteriorSiguiente} onClick={() => setCurrentPage(currentPage - 1)} ><i className="bi bi-arrow-left-short"></i></button>
           </li> 
 
           {/* Numeración del paginado */}
@@ -41,7 +41,7 @@ export const Paginado = ({ totalProducts, productsPerPage, setCurrentPage, curre
 
           {/* Botón Next */}
           <li>
-            <button disabled={currentPage  === (pageNumber.length)} className={styles.anteriorSiguiente} onClick={() => setCurrentPage(currentPage + 1)} >Siguiente</button>
+            <button disabled={currentPage  === (pageNumber.length)} className={styles.anteriorSiguiente} onClick={() => setCurrentPage(currentPage + 1)} ><i className="bi bi-arrow-right-short"></i></button>
           </li>
 
         </ul>

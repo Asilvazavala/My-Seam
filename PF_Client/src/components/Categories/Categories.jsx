@@ -116,9 +116,7 @@ export const Categories = () => {
           <Button value='Faldas' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Faldas</Button>
           <Button value='Pantalones' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Pantalones</Button>
           <Button value='Camisas' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Camisas</Button>
-          <Button value='Sweaters' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Sueters</Button>
-          <Button value='Bermudas' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Bermudas</Button>
-          <Button value='Camperas' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Camperas</Button>
+          <Button value='Sweaters' onClick={(e) => handleFilterByCategory(e)} className={styles.buttonCategorie} colorScheme='orange'>Sudaderas</Button>
 
           <h4>Género</h4>
           <Button value='Todos' onClick={(e) => handleAll(e)} className={styles.buttonCategorie} colorScheme='orange'>Todos</Button>

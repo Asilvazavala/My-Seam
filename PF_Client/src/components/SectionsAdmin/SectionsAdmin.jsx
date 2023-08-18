@@ -1,18 +1,14 @@
 import React from 'react'
 import styles from './SectionsAdmin.module.css'
-import imgTech from '../../images/Technology.jpg'
-import imgHome from '../../images/home.jpg'
-import imgCostura from '../../images/costura.jpg'
-import imgCostura2 from '../../images/costura2.jpg'
-import { useSelector } from 'react-redux';
+import imgTech from '../../images/Technology.webp'
+import imgHome from '../../images/home.webp'
+import imgCostura from '../../images/home.webp'
+import imgCostura2 from '../../images/Technology.webp'
 import { Link } from 'react-router-dom'
 
 export const SectionsAdmin = () => {
-  // Me traigo los estados del reducer 
-  // let products = useSelector((state) => state.products);
-
   return (
-    <div /*className={products.length > 0 ? '' : styles.hideSections}*/>
+    <div>
       <div><h4 className={styles.titleSections}>DASHBOARD ADMIN</h4>
         <div className={styles.containerSections} title="Haz clic para ver más detalles">
 

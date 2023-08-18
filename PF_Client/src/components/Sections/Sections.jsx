@@ -42,7 +42,7 @@ export const Sections = () => {
         </div>
 
         <div className={styles.cardsContainer}>
-            <div id={'Camperas'} onClick={(e) => handleFilterByCategory(e)} className={styles.card4}>
+            <div id={'Sweaters'} onClick={(e) => handleFilterByCategory(e)} className={styles.card4}>
               <h2>Sudaderas</h2>
             </div>
 
