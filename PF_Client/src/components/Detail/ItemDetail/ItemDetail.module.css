@@ -237,19 +237,28 @@
   }
 }
 
-@media (max-width:400px) {
+@media (max-width:450px) {
   .main .containerDescription {
-    min-height: 65vh;
     height: auto;
+    justify-content: center;
+  }
+
+  .main .containerDescription p {
+    margin-top: .3rem;
+  }
+
+  .containerTallas {
+    margin-top: -1rem;
+  }
+
+  .main .containerDescription .containerPrice {
+    margin-top: .6rem;
+  }
+
+  .main .containerDescription .containerButton {
+    padding: 0 0 10px 0;
   }
 }
-
-@media (max-width:360px) {
-  .main .containerDescription {
-    min-height: 80vh;
-  }
-}
-
 
 
 

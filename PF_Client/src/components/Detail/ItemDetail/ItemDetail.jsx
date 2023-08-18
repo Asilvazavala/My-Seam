@@ -21,7 +21,7 @@ export default function ItemDetail({ image, details }) {
 
   const handleTallaClick = (talla) => {
     setTallaSeleccionada(talla);
-  };
+  };  
 
   const handleFavourites =  () => {
     if (!isAuthenticated) return notificationError('Debe iniciar sesión para añadir a favoritos')
