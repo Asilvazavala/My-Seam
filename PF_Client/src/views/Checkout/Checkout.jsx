@@ -27,19 +27,15 @@ export const Checkout = ({ onClick, cart  }) => {
   // Estado de los campos del registro de domicilio
   const [input, setInput] = useState({
     codigo_postal: '',
-    estado: '',
     ciudad: '',
-    colonia: '',
     calle: '',
     numero_exterior: '',
-    entre_calles: '',
     telefono: '',
-    referencia_direccion: '',
     recordar_direccion: false,
   })
 
   return (
-    <div>
+    <section>
       <NavBar />
       
       {/* Usuario NO registrado */}
@@ -49,18 +45,23 @@ export const Checkout = ({ onClick, cart  }) => {
       </div>
       
       {/* Usuario Registrado */}
-      <div className={!isAuthenticated ? styles.hide : ''}>
-        <FormCheckout err={err} setErr={setErr} input={input} setInput={setInput} cart={cart} />
-        <button
-          className="btn btn-primary btn-lg btn-block"
-          onClick={onClick}
-          id="checkout-btn"
-          disabled={disabled || cart.length < 1}
-        >
-          Pagar
-        </button>
+      <div className={!isAuthenticated ? styles.hide : styles.containerCheckout}>
+        <header>
+          <FormCheckout err={err} setErr={setErr} input={input} setInput={setInput} cart={cart} />
+        </header>
+
+        <footer>
+          <button
+            className="btn btn-primary btn-lg btn-block"
+            onClick={onClick}
+            id="checkout-btn"
+            disabled={disabled || cart.length < 1}
+          >
+            Pagar
+          </button>
+        </footer>
       </div>
       
-    </div>
+    </section>
   )
 }

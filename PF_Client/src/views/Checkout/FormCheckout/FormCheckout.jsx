@@ -29,8 +29,8 @@
             <h2 className={styles.titleCreate}>Agrega un domicilio</h2>
   
             {/* Input codigo_postal */}
-            <div className="col-md-2">
-              <label className="form-label">CP:</label>
+            <div className="col-md-4">
+              <label className="form-label">Código Postal:</label>
               <input 
                 type="number" 
                 className={err.cp || !input.cp ? "form-control is-invalid" : "form-control is-valid"} 
@@ -45,7 +45,7 @@
             </div>
   
             {/* Input ciudad */}
-            <div className="col-md-10">
+            <div className="col-md-8">
               <label className="form-label">Ciudad:</label>
               <input 
                 className={err.ciudad || !input.ciudad ? "form-control is-invalid" : "form-control is-valid"} 
@@ -56,21 +56,6 @@
               {/* Validación input ciudad */}
               <div className={err.ciudad || !input.ciudad ? "invalid-feedback" : "valid-feedback"}>
                 {err.ciudad || !input.ciudad ? <span> {err.ciudad}</span> : '¡Muy bien!'}
-              </div>
-            </div>
-
-             {/* Input colonia */}
-            <div className="col-md-4">
-              <label className="form-label">Colonia:</label>
-              <input 
-                className={err.colonia || !input.colonia ? "form-control is-invalid" : "form-control is-valid"}  
-                value={input.colonia} 
-                name='colonia'
-                onChange={(e) => handleChange(e)}
-              />
-              {/* Validación input colonia */}
-              <div className={err.colonia || !input.colonia ? "invalid-feedback" : "valid-feedback"}>
-                {err.colonia || !input.colonia ? <span> {err.colonia}</span> : '¡Muy bien!'}
               </div>
             </div>
   
@@ -104,21 +89,6 @@
                 {err.numero_exterior || !input.numero_exterior ? <span> {err.numero_exterior}</span> : '¡Muy bien!'}
               </div>
             </div>
-  
-            {/* Input entre_calles */}
-            <div className="col-md-8">
-              <label className="form-label">Entre calles:</label>
-              <input 
-                className={err.entre_calles || !input.entre_calles ? "form-control is-invalid" : "form-control is-valid"} 
-                value={input.entre_calles}
-                name='entre_calles'
-                onChange={(e) => handleChange(e)}
-              />
-              {/* Validación input entre_calles */}
-              <div className={err.entre_calles || !input.entre_calles ? "invalid-feedback" : "valid-feedback"}>
-                {err.entre_calles || !input.entre_calles ? <span> {err.entre_calles}</span> : '¡Muy bien!'}
-              </div>
-            </div>
 
             {/* Input telefono */}
             <div className="col-md-4">
@@ -133,22 +103,6 @@
               {/* Validación input telefono */}
               <div className={err.telefono || !input.telefono ? "invalid-feedback" : "valid-feedback"}>
                 {err.telefono || !input.telefono ? <span> {err.telefono}</span> : '¡Muy bien!'}
-              </div>
-            </div>
-  
-            {/* Input referencia_direccion */}
-            <div className="col-md-12">
-              <label className="form-label">Indicaciones adicionales de esta dirección:</label>
-              <input 
-                className={err.referencia_direccion || !input.referencia_direccion ? "form-control is-invalid" : "form-control is-valid"} 
-                value={input.referencia_direccion} 
-                name='referencia_direccion'
-                placeholder='Descripción de la fachada, punto de referencia, indicación de seguridad, etc.'
-                onChange={(e) => handleChange(e)}
-              />
-              {/* Validación input referencia_direccion */}
-              <div className={err.referencia_direccion || !input.referencia_direccion ? "invalid-feedback" : "valid-feedback"}>
-                {err.referencia_direccion || !input.referencia_direccion ? <span> {err.referencia_direccion}</span> : 'Looks good!'}
               </div>
             </div>
 
@@ -168,16 +122,14 @@
             </div>
           </form>
         </div>
-          <div className={styles.containerResume}>
-            <h2 className={styles.titleCreate}>Resumen de compra</h2>
-            {cart.map(el => <h4 key={el.id}>{el.quantity} {el.name} <b>${el.price}</b></h4>)}
-            
-            <h3>Total: <b>${Math.round(cart.reduce((accumulator, currentValue) => 
-              accumulator + (currentValue.price * currentValue.quantity), 0))}</b></h3>
-          </div>
-          {/* <div className={styles.conatinerButtton}>
-            <Button className={styles.buttonContinue} title='Completa todos los campos' isDisabled={disabled} size='lg' >Continuar</Button>
-          </div> */}
+
+        <div className={styles.containerResume}>
+          <h2 className={styles.titleCreate}>Resumen de compra</h2>
+          {cart.map(el => <h4 key={el.id}>{el.quantity} {el.name} <b>${el.price}</b></h4>)}
+          
+          <h3>Total: <b>${Math.round(cart.reduce((accumulator, currentValue) => 
+            accumulator + (currentValue.price * currentValue.quantity), 0))}</b></h3>
+        </div>
       </div>
     )
   }

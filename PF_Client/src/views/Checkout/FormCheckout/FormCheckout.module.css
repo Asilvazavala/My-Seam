@@ -21,6 +21,12 @@
   font-size: 1.2rem;
 }
 
+.containerResume h3 {
+  margin-top: 1rem;
+  font-weight: bold;
+  border-top: 1px solid rgba(85, 150, 92, 0.4);
+}
+
 .conatinerButtton {
   position: absolute;
   bottom: 0;

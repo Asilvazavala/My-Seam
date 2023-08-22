@@ -11,16 +11,19 @@ export const Footer = () => {
     <div className={allProducts.length > 0 ? '' : styles.hideFooter}>
     <footer className="d-flex flex-column align-items-center justify-content-center">
       <div className={styles.containerFooterIcons}>
+        <Link to="https://antonio-silva-portfolio.onrender.com/" target="_blank" rel="noopener noreferrer">
+          <i className="bi bi-briefcase"></i>
+        </Link>
+        <Link to="mailto:asilvazavala@gmail.com" >
+          <i className="bi bi-envelope"></i>
+        </Link>
         {/* Github */}
         <Link to="https://github.com/Asilvazavala/My-Seam" target="_blank" rel="noopener noreferrer">
           <i className="bi bi-github"></i>
         </Link>
         {/* Correo */}
-        <Link to="mailto:asilvazavala@gmail.com" >
-          <i className="bi bi-envelope"></i>
-        </Link>
         <i data-bs-toggle="modal" data-bs-target="#exampleModal" className="bi bi-linkedin"></i>
-        <div style={{color: 'black'}} className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div style={{color: 'black'}} className="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
