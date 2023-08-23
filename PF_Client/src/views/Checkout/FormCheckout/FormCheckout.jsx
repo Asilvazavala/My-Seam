@@ -1,10 +1,8 @@
   import React from 'react';
-  import { useDispatch } from 'react-redux';
   import styles from './FormCheckout.module.css';
   import { Validation } from './Validation';
-s
+
   export const FormCheckout = ({ input, setInput, err, setErr, cart }) => {
-    const dispatch = useDispatch()
       
     // Actualizar el estado del input al escribir y actualizar el estado de error 
     const handleChange = (e) => {

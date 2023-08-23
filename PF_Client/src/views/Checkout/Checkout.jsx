@@ -47,7 +47,7 @@ export const Checkout = ({ onClick, cart, isLoading  }) => {
       {/* Usuario Registrado */}
       <div className={!isAuthenticated ? styles.hide : styles.containerCheckout}>
         <header>
-          {/* <FormCheckout err={err} setErr={setErr} input={input} setInput={setInput} cart={cart} /> */}
+          <FormCheckout err={err} setErr={setErr} input={input} setInput={setInput} cart={cart} />
         </header>
 
         <footer>
