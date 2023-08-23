@@ -33,6 +33,7 @@ export const MercadoPago = () => {
       seller_id: seller_id,
     })
       .then(response => {
+        window.location.href = response.data.global.init_point;
       })
       .catch(error => {
         console.error(error);
