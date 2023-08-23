@@ -27,9 +27,9 @@ const postPaymentHandler = async (req, res) => {
     mercadopago.preferences
       .create(preference)
       .then(function (response) {
-        res.json({
-          global: response.body,
-        });
+        // res.json({
+        //   global: response.body,
+        // });
       })
       .catch(function (error) {
         console.log(error);
@@ -75,7 +75,7 @@ const getAuthCode = async (req,res) => {
         console.error(error);
       })
       .finally(() => {
-        res.redirect('https://my-seam.vercel.app/');
+        res.redirect('https://my-seam-chi.vercel.app/');
       })
   } catch (error) {
     res.status(400).json({ error: error.message });
