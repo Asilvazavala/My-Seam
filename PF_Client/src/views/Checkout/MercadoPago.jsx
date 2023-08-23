@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import { useSelector } from 'react-redux';
 import { Checkout } from "./Checkout";
 import InternalProvider from "../../hooks/ContextProvider";
+import '../../init'
 // MercadoPago
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import axios from "axios"

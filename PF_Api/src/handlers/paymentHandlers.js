@@ -28,6 +28,7 @@ const postPaymentHandler = async (req, res) => {
       .create(preference)
       .then(function (response) {
         res.json({
+          global: response.body,
         });
       })
       .catch(function (error) {

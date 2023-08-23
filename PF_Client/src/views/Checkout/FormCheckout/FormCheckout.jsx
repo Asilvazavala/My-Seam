@@ -2,11 +2,8 @@
   import { useDispatch } from 'react-redux';
   import styles from './FormCheckout.module.css';
   import { Validation } from './Validation';
-  // Chakra
-  import { Button } from '@chakra-ui/react'
-
+s
   export const FormCheckout = ({ input, setInput, err, setErr, cart }) => {
-    // Para ejecutar las funciones de las actions
     const dispatch = useDispatch()
       
     // Actualizar el estado del input al escribir y actualizar el estado de error 
