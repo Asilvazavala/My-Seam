@@ -1,4 +1,4 @@
-const { CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, REDIRECT_URI, RETURN_URL } = process.env;
+const { ACCESS_TOKEN, RETURN_URL } = process.env;
 const { User } = require("../db.js");
 const mercadopago = require("mercadopago");
 const axios = require('axios');
@@ -27,9 +27,9 @@ const postPaymentHandler = async (req, res) => {
     mercadopago.preferences
       .create(preference)
       .then(function (response) {
-        // res.json({
-        //   global: response.body,
-        // });
+        res.json({
+          global: response.body,
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -46,11 +46,11 @@ const getAuthCode = async (req,res) => {
       .post(
         "https://api.mercadopago.com/oauth/token",
         {
-          client_secret: CLIENT_SECRET,
-          client_id: CLIENT_ID,
+          client_secret: ACCESS_TOKEN,
+          client_id: ACCESS_TOKEN,
           grant_type: "authorization_code",
           code: code,
-          redirect_uri: REDIRECT_URI 
+          redirect_uri: RETURN_URL 
         },
         {
           headers: {
