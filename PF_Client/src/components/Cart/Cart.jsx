@@ -137,11 +137,10 @@ export const Cart = () => {
                   <h4 className={disabled ? "" : styles.hide}>
                     Todos los productos deben tener al menos 1 unidad
                   </h4>
-                  -----------------------------------------------
                 </div>
 
                 {/* Footer */}
-                <div>
+                <div className={styles.total}>
                   <p>
                     <b>Total: ${Math.round(cartPrice)}</b>
                   </p>
@@ -151,17 +150,14 @@ export const Cart = () => {
                 <div>
                   <Link to={"/checkout"}>
                     <Button
-                      colorScheme = 'green'
+                      colorScheme = 'orange'
                       isDisabled={disabled}
-                      className={cart.length === 0 ? styles.hide : ""}
+                      className={cart.length === 0 ? styles.hide : styles.buttonComprar}
                       onClick={onClose}
                     >
                       Comprar ahora
                     </Button>
                   </Link>
-                  <Button  colorScheme = 'yellow' className={styles.buttonKeepBuying} onClick={onClose}>
-                    Seguir comprando
-                  </Button>
                 </div>
               </div>
             </div>

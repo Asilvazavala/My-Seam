@@ -22,7 +22,7 @@ export const NavBar = () => {
   const dispatch = useDispatch();
 
   // Info de Auth0
-  const { isAuthenticated, user } = useAuth0();
+  const { isAuthenticated, user } = useAuth0();  
 
   useEffect(() => {
     isAuthenticated &&

@@ -22,8 +22,7 @@ import { UserServiceList } from './components/UserServiceList/UserServiceList';
 import { Contacto } from './components/Contacto/Contacto';
 import { UserDetail } from './components/UserDetail/UserDetail';
 
-const backend =import.meta.env.VITE_BACKEND_URL;
-axios.defaults.baseURL = backend
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL
 
 function App() {
   const { isAuthenticated, user } = useAuth0();

@@ -1,6 +1,5 @@
-import React, { useEffect, useState} from "react";
+import React, { useState} from "react";
 import { useSelector } from 'react-redux';
-import Payment from "./Payment/Payment";
 import { Checkout } from "./Checkout";
 import InternalProvider from "../../hooks/ContextProvider";
 // MercadoPago
@@ -11,24 +10,26 @@ initMercadoPago(VITE_PUBLIC_KEY);
 
 export const MercadoPago = () => {
   const [preferenceId, setPreferenceId] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); 
  
   let cart = useSelector(state => state.cart);
-
-  const items = cart?.map(el => {
-      return {
-        id: el.id,
-        name: el.name,
-        unit_price: el.price,
-        quantity: el.quantity,
-        userid: el.userid
-      }
-    })
-  const seller_id = items[0].userid;
+  
+  const cartItems = cart?.map(el => {
+    return {
+      id: el.id,
+      name: el.name,
+      unit_price: el.price,
+      quantity: el.quantity,
+      userid: el.userid
+    }
+  })
+  
+  const seller_id = cartItems[0].userid;
+  
   const handleClick = () => {
     setIsLoading(true);  
     axios.post('/payment', {
-      items: items,
+      items: cartItems,
       seller_id: seller_id,
     })
       .then(response => {
@@ -39,23 +40,15 @@ export const MercadoPago = () => {
       })
       .finally(() => {
         setIsLoading(false);
+        localStorage.removeItem("cart")
       });
   };
-
-  const renderSpinner = () => {
-     if (isLoading) {
-      return (
-          <p>Loading</p>
-        )
-     }
-  }
 
   return (
     <div>
       <InternalProvider context={{ preferenceId, isLoading }}>
         <main>
-          <Checkout onClick={handleClick} cart={cart}/>
-          {renderSpinner()}
+          <Checkout onClick={handleClick} cart={cart} isLoading={isLoading} />
         </main>
       </InternalProvider>
     </div>

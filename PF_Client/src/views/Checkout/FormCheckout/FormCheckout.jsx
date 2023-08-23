@@ -18,10 +18,7 @@
     const handleChangeRecordarDomicilio = (e) => {
       setInput({...input, [e.target.name] : !input.recordar_direccion})
     }
-  
-    // Deshabilitar botón "Create Pokemon" si hay algún error
-    const disabled = Object.keys(err).length || !input.cp
-  
+      
     return (
       <div className={styles.containerMain}>
         <div className={styles.containerForm}>
@@ -124,11 +121,21 @@
         </div>
 
         <div className={styles.containerResume}>
-          <h2 className={styles.titleCreate}>Resumen de compra</h2>
-          {cart.map(el => <h4 key={el.id}>{el.quantity} {el.name} <b>${el.price}</b></h4>)}
+          <article>
+            <h2 className={styles.titleCreate}>Resumen de compra</h2>
+            {cart.map(el =>
+              <main key={el.id}> 
+                <img src={el.image[0]} alt={el.name} />
+                <p>{el.name}</p>
+                <p>{el.quantity}</p>
+                <p><b>${el.price}</b></p>
+              </main>
+            )}
+          </article>
           
           <h3>Total: <b>${Math.round(cart.reduce((accumulator, currentValue) => 
-            accumulator + (currentValue.price * currentValue.quantity), 0))}</b></h3>
+            accumulator + (currentValue.price * currentValue.quantity), 0))}</b>
+          </h3>
         </div>
       </div>
     )

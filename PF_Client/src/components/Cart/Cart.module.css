@@ -60,6 +60,15 @@
   flex-direction: column;
 }
 
+.buttonComprar {
+  width: 90%;
+  padding: 10px 0;
+}
+
+.total {
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+}
+
 /* Responsive */
 @media only screen and (max-width: 422px) {
   .titleCart {

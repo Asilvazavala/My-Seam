@@ -8,10 +8,10 @@ import { Context } from "../../hooks/ContextProvider";
 import { useAuth0 } from '@auth0/auth0-react';
 // MercadoPago
 
-export const Checkout = ({ onClick, cart  }) => {
+export const Checkout = ({ onClick, cart, isLoading  }) => {
 
   const [isVisible, setIsVisible] = useState(true);
-  const { preferenceId, isLoading: disabled } = useContext(Context);
+  const { preferenceId } = useContext(Context);
 
   useEffect(() => {
     if (preferenceId) setIsVisible(false);
@@ -52,12 +52,13 @@ export const Checkout = ({ onClick, cart  }) => {
 
         <footer>
           <button
-            className="btn btn-primary btn-lg btn-block"
+            className='btn btn-primary btn-lg btn-block'
             onClick={onClick}
             id="checkout-btn"
-            disabled={disabled || cart.length < 1}
+            disabled={isLoading || cart.length < 1}
           >
-            Pagar
+          <span className={isLoading ? styles.loader : null}></span>
+          {isLoading ? null : 'Pagar'}
           </button>
         </footer>
       </div>
