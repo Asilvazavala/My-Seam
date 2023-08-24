@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { useFunctions } from '../../../hooks/useFunctions'
 import { useEffect } from 'react'
 import { getProductById, getSimilarProducts, loadProductDetails } from '../../../redux/actions'
+import { SLDetails } from '../../SkeletonLoader/SLDetails';
 
 export const OtrosArticulos = ({ details }) => {
   const { goTop, useSelector, dispatch } = useFunctions();
@@ -39,7 +40,7 @@ export const OtrosArticulos = ({ details }) => {
                 </ul>
               )
             })
-            : null
+            : <SLDetails />
         }
       </section>
     </main>
