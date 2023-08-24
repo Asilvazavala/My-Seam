@@ -2,7 +2,7 @@ import styles from './OtrosArticulos.module.css'
 import { NavLink } from 'react-router-dom'
 import { useFunctions } from '../../../hooks/useFunctions'
 import { useEffect } from 'react'
-import { getProductById, getSimilarProducts } from '../../../redux/actions'
+import { getProductById, getSimilarProducts, loadProductDetails } from '../../../redux/actions'
 
 export const OtrosArticulos = ({ details }) => {
   const { goTop, useSelector, dispatch } = useFunctions();
@@ -10,6 +10,7 @@ export const OtrosArticulos = ({ details }) => {
   const similarProducts = useSelector(state => state.similarProducts);
   
   function handleClick(id) {
+    dispatch(loadProductDetails())
     dispatch(getProductById(id))
   }
 

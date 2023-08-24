@@ -25,6 +25,7 @@ import {GET_PRODUCTS,
     UPDATE_CART,
     UPDATE_CART_SET,
     GET_SIMILAR_PRODUCTS,
+    LOAD_PRODUCT_DETAILS,
    nameAlphabet } from "./actions";
 
 const initialState = {
@@ -83,7 +84,10 @@ const rootReducer = (state = initialState, action) => {
         case GET_PRODUCT_BY_ID:
             return {...state,
                 details: action.payload };  
-                case GET_SERVICE_BY_ID: {
+        case LOAD_PRODUCT_DETAILS:
+            return {...state,
+                details: [] };  
+        case GET_SERVICE_BY_ID: {
                   return { ...state, details: action.payload };
                 }
         case SET_PRODUCT_CHANGE:

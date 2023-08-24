@@ -34,10 +34,13 @@ body {
 }
 
 /* Responsive */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1000px) {
   .buttonTheme {
-    float: right;
+    float: right;   
   }
+}
+
+@media only screen and (max-width: 500px) {
   .userName {
     font-size: 20px;
   }
@@ -51,7 +54,7 @@ body {
     margin: 0;
     font-size: .8rem;
     height: 2rem;
-    width: 2.5rem;
+    width: 2.7rem;
     margin-left: -20px;
     margin-right: 1px;
   }

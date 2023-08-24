@@ -27,6 +27,8 @@ export const DELETE_FAVOURITE = "DELETE_FAVOURITE";
 export const UPDATE_CART= "UPDATE_CART";
 export const UPDATE_CART_SET = "UPDATE_CART_SET";
 export const GET_SIMILAR_PRODUCTS = "GET_SIMILAR_PRODUCTS";
+export const LOAD_PRODUCT_DETAILS = "LOAD_PRODUCT_DETAILS";
+
 import { useNotifications } from '../hooks/useNotifications'
 const { notificationError } = useNotifications()
 
@@ -80,6 +82,12 @@ export const getServiceById = (id) => {
     const res = await axios.get(`/service/${id}`);
     const details = res.data;
     dispatch({ type: GET_SERVICE_BY_ID, payload: details });
+  };
+}
+;
+export const loadProductDetails = () => {
+  return async function (dispatch) {
+    dispatch({ type: LOAD_PRODUCT_DETAILS, payload: 'details' });
   };
 };
 

@@ -3,7 +3,7 @@ import styles from './CardProducts.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useFunctions } from '../../../hooks/useFunctions';
 import { useNotifications } from '../../../hooks/useNotifications';
-import { addCart, addFavourite, getSimilarProducts } from '../../../redux/actions';
+import { addCart, addFavourite, getSimilarProducts, loadProductDetails } from '../../../redux/actions';
 //Chakra
 import { useColorMode, Icon } from '@chakra-ui/react'
 import { BsFillCartPlusFill, BsFillHeartFill } from "react-icons/bs";
@@ -43,6 +43,7 @@ export const CardProducts = ({ id, image, name, price }) => {
   }
   
   function handleClick(currentProduct) {
+    dispatch(loadProductDetails())
     dispatch(getSimilarProducts(currentProduct))
   }
  
