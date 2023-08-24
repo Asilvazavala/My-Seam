@@ -10,7 +10,8 @@
 .conatinerResults {
   position: absolute;
   background-color: rgb(228, 225, 225);
-  z-index: 1;
+  z-index: 100;
+  margin-top: -3vh;
 }
 
 .inputSearch {
@@ -28,36 +29,23 @@
 
 @media only screen and (max-width: 1200px) {
   .inputSearch {
-    margin-top: 25px;
+    width: 40vw !important;
   }
+
   .buttonSearch {
-    margin-top: 25px;
+    margin-left: 0;
   }
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (max-width: 600px) {
   .inputSearch {
-    width: 100px;
-    margin-right: 0px;
+    font-size: .8rem !important;
+    margin-top: 20px;
   }
+
   .buttonSearch {
-    margin-left: 5px;
-  }
-}
-
-
-@media only screen and (max-width: 430px) {
-  .inputSearch {
-    max-width: 220px;
-  }
-}
-
-@media only screen and (max-width: 330px) {
-  .containerSerchBar {
-    flex-wrap: wrap;
-  }
-  .buttonSearch {
-    margin: 10px 0 0 0;
+    margin-left: -5px;
+    margin-top: 20px;
   }
 }
 

@@ -34,25 +34,27 @@ body {
 }
 
 /* Responsive */
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 500px) {
   .buttonTheme {
     float: right;
   }
   .userName {
     font-size: 20px;
   }
-}
 
-@media only screen and (max-width: 450px) {
   .imgLogo {
-    max-height: 40px;
+    margin-right: 5px;
   }
-}
 
-@media only screen and (max-width: 350px) {
-  .imgLogo {
-    max-height: 30px;
-    margin-right: 10px;
+  .menuMobile {
+    background: rgb(255, 100, 0);
+    margin: 0;
+    font-size: .8rem;
+    height: 2rem;
+    width: 2.5rem;
+    margin-left: -20px;
+    margin-right: 1px;
   }
+
 }
 

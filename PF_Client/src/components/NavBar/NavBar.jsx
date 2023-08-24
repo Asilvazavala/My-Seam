@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { HashLink as NavLink } from 'react-router-hash-link';
 import styles from './NavBar.module.css';
 import Logo from '../../assets/images/logo_MySeam_full.png';
+import LogoMobile from '../../assets/images/Ico_Seam-30x30.png';
 import { SearchBar } from './SearchBar/SearchBar';
 import { Cart } from '../Cart/Cart';
 // Chakra
@@ -52,117 +53,107 @@ export const NavBar = () => {
 
   return (
     <div className={styles.main}>
-    {/* NavBar */}
-    <nav
-      className="navbar navbar-expand-xl bg-body-tertiary w-100"
-      data-bs-theme={currentTheme === "dark" ? "dark" : "light"}
-    >
-    <div className="container-fluid">
-      {/* Logo */}
-      <NavLink to={"/home"}>
-        <img className={styles.imgLogo} src={Logo} alt="Logo My Seam" />
-      </NavLink>
-
-       {window.innerWidth < 1200 && window.innerWidth > 750 && <SearchBar />}
-       {isSmallScreen && <Cart />}
-
-      <button
-        className={`${styles.menuMobile} navbar-toggler`}
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+      {/* NavBar */}
+      <nav
+        className="navbar navbar-expand-xl bg-body-tertiary w-100"
+        data-bs-theme={currentTheme === "dark" ? "dark" : "light"}
       >
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <section className="container-fluid">
+        {/* Logo */}
+        <NavLink to={"/home"}>
+          <img className={styles.imgLogo} src={window.innerWidth < 1200 ? LogoMobile : Logo} alt="Logo My Seam" />
+        </NavLink>
 
-        {/* Vender */}
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item" title="Publicar producto">
-            <NavLink className="nav-link active" to="/create">Vender</NavLink>
-          </li>
+        {window.innerWidth < 1200 && <SearchBar />}
+        {isSmallScreen && <Cart />}
 
-          {/* Categorías */}
-          <li className="nav-item dropdown">
-            <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Categorías
-            </NavLink>
-            <ul className="dropdown-menu">
-              <li>
-                <NavLink className="dropdown-item" to="/service">
-                  Servicios
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" smooth to="/home#categories">
-                  Productos
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" to="/promotions">
-                  Ofertas
-                </NavLink>
-              </li>
-            </ul>
-          </li>
+        <button
+          className={`${styles.menuMobile} navbar-toggler`}
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+
+          {/* Vender */}
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item" title="Publicar producto">
+              <NavLink className="nav-link active" to="/create">Vender</NavLink>
+            </li>
+
+            {/* Categorías */}
+            <li className="nav-item dropdown">
+              <NavLink className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorías
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink className="dropdown-item" to="/service">
+                    Servicios
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" smooth to="/home#categories">
+                    Productos
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/promotions">
+                    Ofertas
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
 
           {/* Mi perfil */}
-          <li
-            className={
-              isAuthenticated ? "nav-item dropdown" : styles.hideMiPerfil
-            }
-          >
-            <NavLink
-              className="nav-link dropdown-toggle active"
-              to="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+            <li
+              className={
+                isAuthenticated ? "nav-item dropdown" : styles.hideMiPerfil
+              }
             >
-              {isAuthenticated ? (
-                <>
-                  <Avatar
-                    size="xs"
-                    name={user.name}
-                    src={user.picture}
-                    marginLeft="10px"
-                    marginRight="10px"
-                  />
-                  <u className={styles.userName}> {user.name}</u>
-                </>
-              ) : (
-                ""
-              )}
-            </NavLink>
-            <ul className="dropdown-menu">
-              <li>
-                <NavLink className="dropdown-item" to="/profile">
-                  Mi Perfil
-                </NavLink>
-              </li>
-              {/* <li>
-                <NavLink className="dropdown-item" to="#">
-                  Mis ventas
-                </NavLink>
-              </li>
-              <li>
-                <NavLink className="dropdown-item" to="#">
-                  Mis compras
-                </NavLink>
-              </li> */}
-              <li>
-                <NavLink className="dropdown-item" to="/favourites">
-                  Mis favoritos
-                </NavLink>
-              </li>
-            </ul>
-          </li>
-
-            </ul>
-            <SearchBar />
+              <NavLink
+                className="nav-link dropdown-toggle active"
+                to="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {isAuthenticated ? (
+                  <>
+                    <Avatar
+                      size="xs"
+                      name={user.name}
+                      src={user.picture}
+                      marginLeft="10px"
+                      marginRight="10px"
+                    />
+                    <u className={styles.userName}> {user.name}</u>
+                  </>
+                ) : (
+                  ""
+                )}
+              </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink className="dropdown-item" to="/profile">
+                    Mi Perfil
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" to="/favourites">
+                    Mis favoritos
+                  </NavLink>
+                </li>
+              </ul>
+            </li>
+          </ul>
+            
+          {window.innerWidth > 1200 && <SearchBar />}
 
             <IconButton
               title= "Cambiar tema"
@@ -176,16 +167,14 @@ export const NavBar = () => {
 
             {isAuthenticated ? (
               <>
-                {/* <Profile /> */}
                 <LogoutButton />
               </>
             ) : (
               <LoginButton />
             )}
           </div>
-        </div>
+        </section>
       </nav>
-
     </div>
   );
 };
