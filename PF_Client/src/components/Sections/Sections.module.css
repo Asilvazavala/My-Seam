@@ -1,13 +1,12 @@
 .titleSections {
-  margin: 100px 0 10px 30px;
+  margin: 50px 0 0px 30px;
   font-weight: bolder;
   font-size: 35px;
 }
 
 .cardsContainer {
   padding: 0 30px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
   display: flex;
   gap: 2%;
 }
@@ -95,29 +94,41 @@
   }
 
   .cardsContainer {
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 2rem;
+    align-items: center;
+    column-gap: .5rem;
+    padding: 0 15px;
   }
 
   .card1,
-  .card6,
   .card2,
   .card3,
   .card4,
-  .card5 {
-    flex-grow: 1;
-    max-width: 300px;
+  .card5,
+  .card6 {
+    width: 35%;
+    height: 30vh;  
+    padding: 0;
   }
 
   .titleSections {
-    margin: 40px 0 10px 30px;
+    margin: 40px 0 10px 20px;
   }
 }
 
 @media (max-width: 420px) {
   .titleSections {
     font-size: 30px;
+  }
+
+  .cardsContainer h2 {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 350px) {
+  .cardsContainer h2 {
+    font-size: 16px;
   }
 }
 

@@ -1,5 +1,5 @@
 .titleSections {
-  margin: 100px 0 10px 30px;
+  margin: 50px 0 10px 30px;
   font-weight: bolder;
   font-size: 35px;
 }
@@ -26,11 +26,9 @@
   .cardContainer {
     grid-template-columns: repeat(auto-fill, min(min(100%, 50%)));
   }  
-}
 
-@media only screen and (max-width: 400px) {
-  .cardContainer {
-    grid-template-columns: repeat(auto-fill, min(min(100%, 100%)));
-  }  
+  .titleSections {
+    margin: 50px 0 0 30px;
+    font-size: 30px;
+  }
 }
-

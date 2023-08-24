@@ -54,23 +54,27 @@ export const CardProducts = ({ id, image, name, price }) => {
           <NavLink className={styles.Link} to= {`/ProductDetail/${id}`} onClick={goTop}>
             <img onClick={() => handleClick(currentProduct)} loading='lazy' decoding='async' className={styles.imgCenter} src={image[0]} alt={name} title="Haz clic para ver más detalles" />
           </NavLink>
-          <Icon 
-            as={BsFillCartPlusFill} 
-            w={8} 
-            h={8} 
-            className={styles.buttonCart} 
-            onClick={handleCart} 
-            title="Agregar al carrito"
-          />
-          <Icon 
-            as={BsFillHeartFill} 
-            color={isFavourite >= 0  ? 'red' : ''} 
-            w={8} 
-            h={8} 
-            className={isFavourite >= 0  ? styles.favItem : styles.buttonFavourites} 
-            onClick={handleFavourites} 
-            title="Agregar a favoritos"
-          />
+
+          <article className={styles.icons}>
+            <Icon 
+              as={BsFillCartPlusFill} 
+              w={8} 
+              h={8} 
+              className={styles.buttonCart} 
+              onClick={handleCart} 
+              title="Agregar al carrito"
+            />
+            <Icon 
+              as={BsFillHeartFill} 
+              color={isFavourite >= 0  ? 'red' : ''} 
+              w={8} 
+              h={8} 
+              className={isFavourite >= 0  ? styles.favItem : styles.buttonFavourites} 
+              onClick={handleFavourites} 
+              title="Agregar a favoritos"
+            />
+          </article>
+
           <NavLink className={styles.Link} to= {`/ProductDetail/${id}`} onClick={goTop} >
             <article className={styles.articleDescription}>
               <h1 onClick={() => handleClick(currentProduct)} className={styles.articleName} title="Haz clic para ver más detalles">{name}</h1>

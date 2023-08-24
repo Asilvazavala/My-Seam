@@ -95,6 +95,7 @@ export const Categories = () => {
       <div id='categories' className={styles.containerMain}>
         
         <div className={styles.containerCategories}>
+        <h2>Filtros</h2>
           <h1 className={styles.currentCategory}>{category !== 'Todos' && products.length} {category !== 'Todos' && 'Resultados'}</h1>
           <Button value='Todos' onClick={(e) => handleAll(e)} className={styles.buttonCategorieTodos} colorScheme='orange'>Todos</Button>
                     

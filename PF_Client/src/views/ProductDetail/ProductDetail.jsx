@@ -12,6 +12,7 @@ import {
 import { NavBar } from "../../components/NavBar/NavBar";
 import Detail from "../../components/Detail/Detail";
 import Questions from "../../components/Questions/Questions";
+import { SLDetails } from "../../components/SkeletonLoader/SLDetails";
 
 
 
@@ -93,7 +94,7 @@ export const ProductDetail = ({ isAuthenticated, user }) => {
           />
         </div>
       ) : (
-        "No se encontró el ID"
+        <SLDetails />
       )}
     </div>
   );

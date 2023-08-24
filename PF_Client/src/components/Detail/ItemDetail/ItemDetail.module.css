@@ -211,6 +211,7 @@
   .main .containerImage img {
     width: 35vw;
     height: 40vh;
+    border-bottom-left-radius: 0px;
   }
   
   .main .containerDescription {

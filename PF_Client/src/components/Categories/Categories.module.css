@@ -1,18 +1,24 @@
 /* Containers */
 .containerMain {
-  margin: 0 auto;
   width: 100%;
   display: flex;
   flex-direction: row;
   margin: 30px 0 50px 0;
 }
 
-
 .containerCategories {
   display: flex;
   flex-direction: column;
   max-width: 25%;
   margin: 30px 0 0 0;
+}
+
+.containerCategories h2 {
+  margin-left: 20px;
+  margin-top: 30px;
+  font-size: 35px;
+  font-weight: bold;
+  width: 100%;
 }
 
 .containerCategories h4 {
@@ -23,7 +29,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, min(min(100%, 33%)));
   transition: all 0.8s ease;
-  min-width: 70%;
+  width: 100%;
   margin: 90px 0 0 0;
 }
 
@@ -66,37 +72,16 @@
   cursor: pointer;
 }
 
-/* Loading */
-
-.loader {
-  width: 100px;
-  height: 110px;
-  border: 5px solid #ec9c9c;
-  border-bottom-color: #FF3D00;
-  border-radius: 50%;
-  position: absolute;
-  top: 100%;
-  left: 45%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} 
-
 /* Responsive */
 
 @media only screen and (max-width: 900px) {
   .cardContainer {
     grid-template-columns: repeat(auto-fill, min(min(100%, 33%)));
   }  
+
+  .containerMain {
+    margin: -50px 0 50px 0;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -113,15 +98,23 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .cardContainer {
-    grid-template-columns: repeat(auto-fill, min(min(100%, 100%)));
-  }
   .buttonCategorie {
     width: 80px;
     display: flex;
     flex-wrap: wrap;
+    font-size: .9rem !important;
   }  
+
+  .buttonCategorieTodos {
+    width: 60px;
+  }
+
   .buttonPrice {
     margin-left: 40px;
   }
+
+  .containerCategories h2 {
+    font-size: 30px;
+  }
+
 }
