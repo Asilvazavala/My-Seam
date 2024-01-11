@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import styles from './Landing.module.css'
 import BackgroundVideo from "../../assets/images/NewMySeam.mp4"
 import { getUserByEmail, getUsers } from '../../redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+import { getProducts } from '../../redux/actions';
 
 export const Landing = () => {
   const dispatch = useDispatch();
   const {isAuthenticated, user}= useAuth0();
-  // console.log(user, isAuthenticated);
+  
+  const products = useSelector((state) => state.products);
 
   if (isAuthenticated){
     // console.log("Entro a este condicional");
@@ -28,9 +30,11 @@ export const Landing = () => {
    dispatch(getUserByEmail(user.email));
   }
 
-  
-
-
+  useEffect(() => {
+    if (products.length === 0) {
+      dispatch(getProducts());
+    }
+  }, [])
 
   return (
     <div className={styles.containerLanding}>
